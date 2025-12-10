@@ -1,29 +1,27 @@
-import { ButtonGroup, ToggleButton } from "react-bootstrap";
-
 export default function ToggleView({ view, setView }) {
-  return (
-    <div style={{ margin: "20px", textAlign: "center" }}>
-      <ButtonGroup>
-        <ToggleButton
-          id="prof-toggle"
-          type="radio"
-          variant="outline-primary"
-          checked={view === "professional"}
-          onClick={() => setView("professional")}
-        >
-          Professional View
-        </ToggleButton>
+  const isProfessional = view === "professional";
 
-        <ToggleButton
-          id="personal-toggle"
-          type="radio"
-          variant="outline-secondary"
-          checked={view === "personal"}
-          onClick={() => setView("personal")}
-        >
-          Personal View
-        </ToggleButton>
-      </ButtonGroup>
+  const toggle = () => {
+    setView(isProfessional ? "personal" : "professional");
+  };
+
+  return (
+    <div className="toggle-wrapper">
+      <span className={`toggle-label ${isProfessional ? "active" : ""}`}>
+        Professional
+      </span>
+
+      <button
+        className={`toggle-switch ${isProfessional ? "on" : "off"}`}
+        onClick={toggle}
+        aria-label="Toggle view"
+      >
+        <span className="toggle-knob" />
+      </button>
+
+      <span className={`toggle-label ${!isProfessional ? "active" : ""}`}>
+        Personal
+      </span>
     </div>
   );
 }

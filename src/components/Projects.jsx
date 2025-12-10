@@ -3,38 +3,64 @@ import ProjectCard from "./ProjectCard";
 export default function Projects({ view }) {
   return (
     <div className="page">
-      <h2>Projects & Ventures</h2>
+      {view === "professional" ? (
+        <>
+          <h2>Projects & Ventures</h2>
 
-      <ProjectCard
-        title="MottoNote"
-        description="AI meeting assistant with real-time transcription, summarization, and context-aware collaboration."
-        link="https://www.mottonote.app/"
-        tag={view === "professional" ? "Startup • CEO" : "AI / Collaboration Tool"}
-      />
+          <ProjectCard
+            title="MottoNote"
+            link="https://www.mottonote.app/"
+            description="AI assistant for real-time context retrieval and collaboration."
+            tag="Startup • CEO"
+          />
 
-      <ProjectCard
-        title="EduExplorer"
-        description="Mentorship platform pairing university mentors with high school students; completed 30+ paid sessions."
-        tag={view === "professional" ? "Startup" : "Education Project"}
-      />
+          <ProjectCard
+            title="EduExplorer"
+            description="Mentorship platform connecting university mentors with high school students."
+            tag="Education Tech"
+          />
 
-      <ProjectCard
-        title="MealMates"
-        description="Designed MVP to redistribute unused dining hall food; supported by 60+ interviews and campus collaboration."
-        tag={view === "professional" ? "Lean Startup" : "Sustainability Project"}
-      />
+          <ProjectCard
+            title="MealMates"
+            description="Food redistribution MVP using interviews with students and dining staff."
+            tag="Sustainability"
+          />
 
-      <ProjectCard
-        title="Campus Path Finder"
-        description="Java system using Dijkstra's algorithm to compute shortest paths across UW–Madison."
-        tag={view === "professional" ? "Algorithms" : "Class Project"}
-      />
+          <ProjectCard
+            title="Campus Path Finder"
+            description="Dijkstra-based shortest path routing across UW–Madison."
+            tag="Algorithms"
+          />
 
-      <ProjectCard
-        title="iSongly"
-        description="Red-Black Tree backend enabling fast song search and metadata queries in O(log n)."
-        tag={view === "professional" ? "Backend" : "Data Structures Project"}
-      />
+          <ProjectCard
+            title="iSongly"
+            description="Red-Black tree backend for fast song search by metadata."
+            tag="Data Structures"
+          />
+        </>
+      ) : (
+        <>
+          <h2>Outside of Work</h2>
+
+          <ProjectCard
+            title="Gym"
+            description="My non-negotiable. Lifting keeps me disciplined, focused, and grounded."
+            tag="Health • Discipline"
+          />
+
+          <ProjectCard
+            title="Cooking"
+            description="I like experimenting in the kitchen—especially desserts. Current obsession: homemade Biscoff pudding."
+            tag="Creative Outlet"
+          />
+
+          <ProjectCard
+            title="Hiking"
+            description="Getting outside helps me reset. Quiet trails, long walks, and time to think without notifications."
+            tag="Outdoors • Clarity"
+          />
+        </>
+      )}
     </div>
   );
 }
